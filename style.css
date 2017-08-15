@@ -2,3 +2,10 @@
   background-color: gray !important;
   cursor: pointer;
 }
+
+.random-question-btn {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 8px 5px;
+  cursor: pointer;
+}
