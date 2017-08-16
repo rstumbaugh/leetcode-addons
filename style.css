@@ -9,3 +9,8 @@
   padding: 8px 5px;
   cursor: pointer;
 }
+
+.random-question-btn:hover {
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
