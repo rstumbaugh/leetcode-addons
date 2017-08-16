@@ -1,9 +1,10 @@
-function hide() {
+function init() {
   addRandomButton();
   hideLabels();
   hideAttemptsSubmissions();
 }
 
+/* on question list page, add button to choose random from list */
 function addRandomButton() {
   var filterBar = document.querySelector('.filter-tag-bar');
   if (filterBar && !filterBar.querySelector('span.random-question-btn')) {
@@ -16,6 +17,7 @@ function addRandomButton() {
   }
 }
 
+/* choose random question from current list of questions */
 function getRandomQuestion() {
   var lst = document.querySelectorAll('.question-list-table td:nth-child(3)');
   var idx = Math.floor(Math.random() * lst.length);
@@ -23,16 +25,18 @@ function getRandomQuestion() {
   window.location.href = 'https://leetcode.com' + path;
 }
 
+/* hide difficulty label on question page */
 function hideLabels() {
-  var labels = document.querySelectorAll('.difficulty-label');
-
-  for (var i = 0; i < labels.length; i++) {
-    hideLabel(labels[i]);
-    if (labels[i].onclick == null) 
-      labels[i].onclick = function(e) { toggle(e.target); }
+  var label = document.querySelector('.difficulty-label');
+  if (label) {
+    hideLabel(label);
+    if (label.onclick == null) {
+      label.onclick = function(e) { toggle(e.target) }
+    }
   }
 }
 
+/* hide successful attempts on question page */
 function hideAttemptsSubmissions() {
   var sidebar = '#desktop-side-bar ul li:nth-child(3) span.pull-right';
   var item = document.querySelector(sidebar)
@@ -40,6 +44,7 @@ function hideAttemptsSubmissions() {
   item.innerHTML = 'Hidden'
 }
 
+/* toggle difficulty label */
 function toggle(label) {
   var text;
 
@@ -58,11 +63,12 @@ function toggle(label) {
   }
 }
 
+/* hide label if not already hidden */
 function hideLabel(label) {
   if (/hidden/.test(label.className)) return;
   label.className += ' hidden-difficulty';
   label.innerHTML = 'Hidden';
 }
 
-window.onload = hide;
-document.addEventListener('DOMNodeInserted', hide)
+window.onload = init;
+document.addEventListener('DOMNodeInserted', init)
