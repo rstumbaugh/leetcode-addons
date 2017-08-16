@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "LeetCode Difficulty Hider",
-  "description": "Hides difficulty on LeetCode problems.",
+  "name": "LeetCode Add-ons",
+  "description": "Small enhancements for LeetCode.",
   "version": "1.0",
 
   "browser_action": {
