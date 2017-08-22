@@ -1,5 +1,6 @@
 function init() {
   addRandomButton();
+  addFavoriteButton();
   hideLabels();
   hideAttemptsSubmissions();
 }
@@ -16,6 +17,19 @@ function addRandomButton() {
     filterBar.append(randomBtn);
   }
 }
+
+/* add button to favorite a question to save for later */
+function addFavoriteButton() {
+
+}
+
+function saveFavorite() {
+  var favorites = localStorage.get('favorites');
+  favorites = favorites ? JSON.parse(favorites) : '[]';
+  favorites.push(window.location.href);
+  localStorage.put('favorites', JSON.stringify(favorites));
+}
+
 
 /* choose random question from current list of questions */
 function getRandomQuestion() {
